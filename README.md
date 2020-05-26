@@ -7,7 +7,31 @@ JParse is a dynamic JSON file decoder/parser that removes the need for custom st
 ``` 
 go get github.com/nishgowda/JParse 
 ```
+## Usage
 
+An example use of these would be:
+
+```
+import(
+    "json/encoding"
+    "fmt"
+    "github.com/nishgowda/Jparse/jparse
+)
+func main(){
+    jsonFile, err := os.Open("users.json")
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println("Successfully Opened users.json")
+    defer jsonFile.Close()
+
+    value := []string{"id", "name", "department"}
+    embeddedValue := []string{"city", "state"}
+    embeddedObj := []string{"address"}
+    a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, embeddedValue)
+    fmt.Println(a)
+}
+```
 
 ### Functions 
 Currently, there exists 4 functions to decode JSON data, each with their own simplicities.
@@ -32,29 +56,6 @@ EmbeddedObjArrayParse(value []string, j string, embeddedObj []string, embeddedVa
 ```
 The final case is an array of JSON data with embedded objects. The same parameters must be passed in as the previous function. 
 
-## Usage
-An example use of these would be:
-```
-import(
-    "json/encoding"
-    "fmt"
-    "github.com/nishgowda/Jparse/jparse
-)
-func main(){
-    jsonFile, err := os.Open("users.json")
-    if err != nil {
-        fmt.Println(err)
-    }
-    fmt.Println("Successfully Opened users.json")
-    defer jsonFile.Close()
-
-    value := []string{"id", "name", "department"}
-    embeddedValue := []string{"city", "state"}
-    embeddedObj := []string{"address"}
-    a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, embeddedValue)
-    fmt.Println(a)
-}
-```
 ### To Do:
 - [ ] Run more tests
 - [ ] Add more error cases
