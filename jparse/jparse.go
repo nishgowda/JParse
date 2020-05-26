@@ -5,33 +5,35 @@ import (
 	"fmt"
 )
 
-// parsing function that takes in json and array of values to parse
+// SimpleParse is a parsing function that takes in a simple json and array of values to parse
 func SimpleParse(value []string, j string) []string {
-	var parsed_json []string
+	var parsedJSON []string
 	var result map[string]interface{}
 	json.Unmarshal([]byte(j), &result)
 	for i := 0; i < len(value); i++ {
 		str := fmt.Sprint(result[value[i]])
-		parsed_json = append(parsed_json, (str))
+		parsedJSON = append(parsedJSON, (str))
 	}
-	return parsed_json
+	return parsedJSON
 }
 
+// SimpleArrayParse is a parsing function that takes in a array of json and array of values to parse
 func SimpleArrayParse(value []string, j string) []string {
-	var parsed_json []string
+	var parsedJSON []string
 	var results []map[string]interface{}
 	json.Unmarshal([]byte(j), &results)
 	for _, result := range results {
 		for i := 0; i < len(value); i++ {
 			str := fmt.Sprint(result[value[i]])
-			parsed_json = append(parsed_json, str)
+			parsedJSON = append(parsedJSON, str)
 		}
 	}
-	return parsed_json
+	return parsedJSON
 }
 
+// EmbeddedObjParse is a parsing function that takes in a simple json with embedded values and array of values to parse
 func EmbeddedObjParse(value []string, j string, embeddedObj []string, embeddedValue []string) []string {
-	var parsed_json []string
+	var parsedJSON []string
 	var result map[string]interface{}
 	json.Unmarshal([]byte(j), &result)
 
@@ -39,19 +41,20 @@ func EmbeddedObjParse(value []string, j string, embeddedObj []string, embeddedVa
 		embedded := result[emb].(map[string]interface{})
 		for i := 0; i < len(value); i++ {
 			str := fmt.Sprint(result[value[i]])
-			parsed_json = append(parsed_json, str)
+			parsedJSON = append(parsedJSON, str)
 		}
 		for i := 0; i < len(embeddedValue); i++ {
 			str := fmt.Sprint(embedded[embeddedValue[i]])
-			parsed_json = append(parsed_json, str)
+			parsedJSON = append(parsedJSON, str)
 		}
 	}
 
-	return parsed_json
+	return parsedJSON
 }
 
+// EmbeddedObjArrayParse is a parsing function that takes in a json array with embedded values and array of values to parse
 func EmbeddedObjArrayParse(value []string, j string, embeddedObj []string, embeddedValue []string) []string {
-	var parsed_json []string
+	var parsedJSON []string
 	var results []map[string]interface{}
 	json.Unmarshal([]byte(j), &results)
 
@@ -60,60 +63,13 @@ func EmbeddedObjArrayParse(value []string, j string, embeddedObj []string, embed
 			embedded := result[emb].(map[string]interface{})
 			for i := 0; i < len(value); i++ {
 				str := fmt.Sprint(result[value[i]])
-				parsed_json = append(parsed_json, str)
+				parsedJSON = append(parsedJSON, str)
 			}
 			for i := 0; i < len(embeddedValue); i++ {
 				str := fmt.Sprint(embedded[embeddedValue[i]])
-				parsed_json = append(parsed_json, str)
+				parsedJSON = append(parsedJSON, str)
 			}
 		}
 	}
-	return parsed_json
+	return parsedJSON
 }
-
-/*
-func main(){
-	//jsonString()
-	json_file := `[
-		{
-			"id": 1,
-			"name": "Mr. Boss",
-			"department": "",
-			"designation": "Director",
-			"address": {
-				"city": "Mumbai",
-				"state": "Maharashtra",
-				"country": "India"
-			}
-		},
-		{
-			"id": 11,
-			"name": "Irshad",
-			"department": "IT",
-			"designation": "Product Manager",
-			"address": {
-				"city": "Mumbai",
-				"state": "Maharashtra",
-				"country": "India"
-			}
-		},
-		{
-			"id": 12,
-			"name": "Pankaj",
-			"department": "IT",
-			"designation": "Team Lead",
-			"address": {
-				"city": "Pune",
-				"state": "Maharashtra",
-				"country": "India"
-			}
-		}
-	]`
-	value := []string{"id", "name","department"}
-	emmbeddedValue := []string{"city", "state"}
-	embeddedObj := []string{"address"}
-	a := embeddedObjArrayParse(value, json_file, embeddedObj, emmbeddedValue)
-	//a := arrayParse(value, json_file)
-	fmt.Println(a)
-}
-*/
