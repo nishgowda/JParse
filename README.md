@@ -4,7 +4,7 @@
 JParse is a dynamic JSON file decoder/parser that removes the need for custom structs to parse JSON data. This idea was inspired by how simple JSON data can be parsed in python, dynamically searching through the JSON for the desired input and returning a splice of string values. Note you must first convert your JSON object to a string in order for it to work, see below example for refrence. 
 
 ## Installation
-``` 
+``` bash
 go get github.com/nishgowda/JParse 
 ```
 ## Usage
