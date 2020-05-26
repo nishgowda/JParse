@@ -9,7 +9,7 @@ import (
 )
 
 func generateURL() string {
-	key := "your_key"
+	key := "KEY"
 	req, _ := http.NewRequest(
 		"GET",
 		"http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/3193_PC",
