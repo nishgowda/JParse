@@ -25,7 +25,7 @@ func main(){
     }
     fmt.Println("Successfully Opened users.json")
     defer jsonFile.Close()
-    body, err := ioutil.ReadAll(res.Body)
+    body, err := ioutil.ReadAll(jsonFile.Body)
     js := string(body)
     value := []string{"id", "name", "department"}
     embeddedValue := []string{"city", "state"}
