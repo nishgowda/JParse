@@ -9,7 +9,7 @@ go get github.com/nishgowda/JParse
 ```
 ## Usage
 
-An example use of these would be:
+An example use of this would be:
 
 ```
 import(
@@ -48,7 +48,7 @@ jparse.SimpleArrayParse(value []string, j string)
 The second case for decoding JSON data is an aray of simple JSON objects. A bit more complicated, but the same idea applies. 
 
 ```
-jparse.EmbeddedObjParse(value []string, j string, embeddedObj []string, embeddedValue []string
+jparse.EmbeddedObjParse(value []string, j string, embeddedObj []string, embeddedValue []string)
 ```
 The third case is designed for dealing with an embedded object in a simple JSON object. Here, the user must pass in an array of embedded terms for the function to search for and the subsequent values of that embedded object on top of the previous parameters. 
 
