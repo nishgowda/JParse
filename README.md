@@ -5,7 +5,7 @@ JParse is a dynamic JSON file decoder/parser that removes the need for custom st
 
 ## Installation
 ``` 
-go get github.com/nishgowda/Jparse 
+go get github.com/nishgowda/JParse 
 ```
 
 
@@ -47,12 +47,11 @@ func main(){
     }
     fmt.Println("Successfully Opened users.json")
     defer jsonFile.Close()
-    byteValue, _ := ioutil.ReadAll(jsonFile)
 
     value := []string{"id", "name", "department"}
     embeddedValue := []string{"city", "state"}
     embeddedObj := []string{"address"}
-    a := jparse.EmbeddedObjArrayParse(value, byteValue, embeddedObj, embeddedValue)
+    a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, embeddedValue)
     fmt.Println(a)
 }
 ```
