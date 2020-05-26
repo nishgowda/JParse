@@ -22,19 +22,23 @@ The final case is an array of JSON data with embedded objects. The same paramete
 
 ### Usage
 An example use of these would be:
-```/ Open our jsonFile
+```
+/ Open our jsonFile
 jsonFile, err := os.Open("users.json")
-// if we os.Open returns an error then handle it
 if err != nil {
     fmt.Println(err)
 }
 fmt.Println("Successfully Opened users.json")
-// defer the closing of our jsonFile so that we can parse it later on
 defer jsonFile.Close()
+byteValue, _ := ioutil.ReadAll(jsonFile)
 
 value := []string{"id", "name", "department"}
 emmbeddedValue := []string{"city", "state"}
 embeddedObj := []string{"address"}
-a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, emmbeddedValue)```
-
+a := jparse.EmbeddedObjArrayParse(value, byteValue, embeddedObj, emmbeddedValue)
+```
+### To Do:
+- [ ] Run more tests
+- [ ] Add more error cases
+- [ ] Deploy
   
