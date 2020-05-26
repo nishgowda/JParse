@@ -40,6 +40,7 @@ import(
     "fmt"
     "github.com/nishgowda/Jparse/jparse
 )
+func main(){
 jsonFile, err := os.Open("users.json")
 if err != nil {
     fmt.Println(err)
@@ -52,6 +53,8 @@ value := []string{"id", "name", "department"}
 emmbeddedValue := []string{"city", "state"}
 embeddedObj := []string{"address"}
 a := jparse.EmbeddedObjArrayParse(value, byteValue, embeddedObj, emmbeddedValue)
+fmt.Println(a)
+}
 ```
 ### To Do:
 - [ ] Run more tests
