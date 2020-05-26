@@ -8,6 +8,7 @@ JParse is a dynamic JSON file decoder/parser that removes the need for custom st
 go get github.com/nishgowda/Jparse 
 ```
 
+
 ### Functions 
 Currently, there exists 4 functions to decode JSON data, each with their own simplicities.
 
@@ -34,6 +35,11 @@ The final case is an array of JSON data with embedded objects. The same paramete
 ## Usage
 An example use of these would be:
 ```
+import(
+    "json/encoding"
+    "fmt"
+    "github.com/nishgowda/Jparse/jparse
+)
 jsonFile, err := os.Open("users.json")
 if err != nil {
     fmt.Println(err)
