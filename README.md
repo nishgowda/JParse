@@ -4,7 +4,9 @@
 JParse is a dynamic JSON file decoder/parser simlar that removes the need for custom structs to parse json data. This idea was inspired by how simple JSON data can be parsed in python, dynamically searching through the JSON for the desired input and returning a splice of string values. Currently, this package has not filled out all edge cases but it is in the works. 
 
 ## Installation
-``` go get github.com/nishgowda/Jparse ```
+``` 
+go get github.com/nishgowda/Jparse 
+```
 
 ### Functions 
 Currently, there exists 4 functions to decode JSON data, each with their own simplicities.
@@ -32,7 +34,6 @@ The final case is an array of JSON data with embedded objects. The same paramete
 ## Usage
 An example use of these would be:
 ```
-/ Open our jsonFile
 jsonFile, err := os.Open("users.json")
 if err != nil {
     fmt.Println(err)
