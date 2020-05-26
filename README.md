@@ -24,11 +24,12 @@ func main(){
     }
     fmt.Println("Successfully Opened users.json")
     defer jsonFile.Close()
-
+    body, err := ioutil.ReadAll(res.Body)
+    js := string(body)
     value := []string{"id", "name", "department"}
     embeddedValue := []string{"city", "state"}
     embeddedObj := []string{"address"}
-    a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, embeddedValue)
+    a := jparse.EmbeddedObjArrayParse(value, js, embeddedObj, embeddedValue)
     fmt.Println(a)
 }
 ```
