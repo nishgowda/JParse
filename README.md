@@ -11,7 +11,8 @@ go get github.com/nishgowda/JParse
 
 An example use of this would be:
 
-```
+```go
+package main
 import(
     "json/encoding"
     "fmt"
