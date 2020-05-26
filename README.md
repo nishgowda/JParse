@@ -15,7 +15,7 @@ An example use of these would be:
 import(
     "json/encoding"
     "fmt"
-    "github.com/nishgowda/Jparse/jparse
+    jparse "github.com/nishgowda/Jparse
 )
 func main(){
     jsonFile, err := os.Open("users.json")
