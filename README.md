@@ -16,7 +16,7 @@ package main
 import(
     "json/encoding"
     "fmt"
-    jparse "github.com/nishgowda/Jparse"
+    jparse "github.com/nishgowda/JParse"
 )
 func main(){
     jsonFile, err := os.Open("users.json")
