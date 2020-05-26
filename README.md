@@ -41,19 +41,19 @@ import(
     "github.com/nishgowda/Jparse/jparse
 )
 func main(){
-jsonFile, err := os.Open("users.json")
-if err != nil {
-    fmt.Println(err)
-}
-fmt.Println("Successfully Opened users.json")
-defer jsonFile.Close()
-byteValue, _ := ioutil.ReadAll(jsonFile)
+    jsonFile, err := os.Open("users.json")
+    if err != nil {
+        fmt.Println(err)
+    }
+    fmt.Println("Successfully Opened users.json")
+    defer jsonFile.Close()
+    byteValue, _ := ioutil.ReadAll(jsonFile)
 
-value := []string{"id", "name", "department"}
-emmbeddedValue := []string{"city", "state"}
-embeddedObj := []string{"address"}
-a := jparse.EmbeddedObjArrayParse(value, byteValue, embeddedObj, emmbeddedValue)
-fmt.Println(a)
+    value := []string{"id", "name", "department"}
+    embeddedValue := []string{"city", "state"}
+    embeddedObj := []string{"address"}
+    a := jparse.EmbeddedObjArrayParse(value, byteValue, embeddedObj, embeddedValue)
+    fmt.Println(a)
 }
 ```
 ### To Do:
