@@ -38,22 +38,22 @@ func main(){
 ### Functions 
 Currently, there exists 4 functions to decode JSON data, each with their own simplicities.
 
-```
+```go
 jparse.SimpleParse(value []string, j string)
 ```
 The simplest case for decoding a JSON file is a scenario with no array of values, no embedded objects, nothing. Just a plain and simple JSON object. Taking in an array of values to search for and a json string, the function will return a string slice of the parsed data.
 
-```
+```go
 jparse.SimpleArrayParse(value []string, j string)
 ```
 The second case for decoding JSON data is an aray of simple JSON objects. A bit more complicated, but the same idea applies. 
 
-```
+```go
 jparse.EmbeddedObjParse(value []string, j string, embeddedObj []string, embeddedValue []string)
 ```
 The third case is designed for dealing with an embedded object in a simple JSON object. Here, the user must pass in an array of embedded terms for the function to search for and the subsequent values of that embedded object on top of the previous parameters. 
 
-```
+```go
 EmbeddedObjArrayParse(value []string, j string, embeddedObj []string, embeddedValue []string)
 ```
 The final case is an array of JSON data with embedded objects. The same parameters must be passed in as the previous function. 
