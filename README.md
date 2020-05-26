@@ -1,7 +1,7 @@
 # JParse
 
 ### What is it?
-JParse is a dynamic JSON file decoder/parser that removes the need for custom structs to parse JSON data. This idea was inspired by how simple JSON data can be parsed in python, dynamically searching through the JSON for the desired input and returning a splice of string values. Currently, this package has not filled out all edge cases but it is in the works. 
+JParse is a dynamic JSON file decoder/parser that removes the need for custom structs to parse JSON data. This idea was inspired by how simple JSON data can be parsed in python, dynamically searching through the JSON for the desired input and returning a splice of string values. Note you must first convert your JSON object to a string in order for it to work, see below example for refrence. 
 
 ## Installation
 ``` 
