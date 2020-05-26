@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/nishgowda/JParse/jparse"
+	jparse "github.com/nishgowda/JParse"
 )
 
 func main() {
