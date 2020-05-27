@@ -10,11 +10,7 @@ import (
 )
 
 func generateURL() string {
-<<<<<<< HEAD:Tests/Test-2/test-2.go
-	key := "KEY" // -> Edit key out in production
-=======
 	key := "KEY"
->>>>>>> 8597a1491502bf8ef6a34363abd890c0724fb8fa:testing/test_2/test_2.go
 	req, _ := http.NewRequest(
 		"GET",
 		"http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/3193_PC",
