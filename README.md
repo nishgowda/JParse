@@ -1,7 +1,7 @@
 # JParse
 
 ### What is it?
-JParse is a dynamic JSON file decoder/parser that removes the need for custom structs to parse JSON data. This idea was inspired by how simple JSON data can be parsed in python, dynamically searching through the JSON for the desired input and returning a splice of string values. Currently, this package has not filled out all edge cases but it is in the works. 
+JParse is a dynamic JSON file decoder/parser that removes the need for custom structs to parse JSON data. This idea was inspired by how simple JSON data can be parsed in python, dynamically searching through the JSON for the desired input and returning a splice of string values. Note you must first convert your JSON object to a string in order for it to work, see below example for refrence. 
 
 ## Installation
 ``` 
@@ -15,7 +15,7 @@ An example use of these would be:
 import(
     "json/encoding"
     "fmt"
-    "github.com/nishgowda/Jparse/jparse
+    jparse "github.com/nishgowda/Jparse
 )
 func main(){
     jsonFile, err := os.Open("users.json")
@@ -24,11 +24,12 @@ func main(){
     }
     fmt.Println("Successfully Opened users.json")
     defer jsonFile.Close()
-
+    body, err := ioutil.ReadAll(res.Body)
+    js := string(body)
     value := []string{"id", "name", "department"}
     embeddedValue := []string{"city", "state"}
     embeddedObj := []string{"address"}
-    a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, embeddedValue)
+    a := jparse.EmbeddedObjArrayParse(value, js, embeddedObj, embeddedValue)
     fmt.Println(a)
 }
 ```

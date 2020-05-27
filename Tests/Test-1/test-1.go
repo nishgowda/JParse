@@ -43,8 +43,8 @@ func main() {
 		}
 	]`
 	value := []string{"id", "name", "department"}
-	emmbeddedValue := []string{"city", "state"}
+	embeddedValue := []string{"city", "state"}
 	embeddedObj := []string{"address"}
-	a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, emmbeddedValue)
+	a := jparse.EmbeddedObjArrayParse(value, jsonFile, embeddedObj, embeddedValue)
 	fmt.Println(a)
 }

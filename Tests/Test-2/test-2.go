@@ -5,11 +5,12 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+
 	jparse "github.com/nishgowda/JParse"
 )
 
 func generateURL() string {
-	key := "your_key"
+	key := "2foCLdpG49MsEvQT09Xxiz7qJkGuCIgA" // -> Edit key out in production
 	req, _ := http.NewRequest(
 		"GET",
 		"http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/3193_PC",
@@ -24,7 +25,7 @@ func generateURL() string {
 
 func main() {
 	url := generateURL()
-	fmt.Println(url)
+	//fmt.Println(url)
 	res, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)
